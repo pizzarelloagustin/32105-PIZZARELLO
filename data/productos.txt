@@ -1,1 +1,1 @@
-[]
+[{"title":"celular","price":"100000","thumbnail":"https://www.freepik.es/fotos-vectores-gratis/celular","id":1},{"title":"notebook","price":"500000","thumbnail":"https://www.freepik.es/fotos-vectores-gratis/notebook","id":2},{"title":"televisor","price":"200000","thumbnail":"https://www.freepik.es/fotos-vectores-gratis/televisor","id":3}]
