@@ -1,0 +1,31 @@
+
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous")
+        link(rel="stylesheet" href="/css/registro.css")
+        title Registro
+    body(class="text-center")
+        main(class="form-signin w-100 m-auto")
+            form(data-bitwarden-watching="1" action="/api/productos" method="post")
+                img(img class="mb-4" src="https://cdn4.iconfinder.com/data/icons/pretty_office_3/128/inventory-maintenance.png"
+                alt="" width="72" height="57")
+                h1(class="h3 mb-1 fw-normal") Registro
+                h1(class="h4 mb-3 fw-normal") Ingrese Producto
+                div(class="form-floating mb-3")
+                    input(type="text" name="title" class="form-control" id="floatingTitle" placeholder="Nombre")
+                    label(label for="floatingTitle") Nombre
+                div(class="form-floating mb-3")
+                    input(type="text" name="price" class="form-control" id="floatingPrice" placeholder="Precio")
+                    label(label for="floatingPrice") Precio
+                div(class="form-floating mb-3")
+                    input(type="text" name="thumbnail" class="form-control" id="floatingImgUrl" placeholder="URL Imagen")
+                    label(label for="floatingImgUrl") URL Imagen
+                button(class="w-100 btn btn-lg btn-primary mb-3" type="submit") Registrar
+            form(action="/productos" method="get")
+                button(class="w-100 btn btn-lg btn-secondary" type="submit") Productos
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous")
