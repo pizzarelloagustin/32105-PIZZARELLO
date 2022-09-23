@@ -16,7 +16,10 @@ function render_products(data) {
 function render_msg(data) {
     const html = data
         .map(
-            (msg) => `<p> ${msg.email} ${msg.msg} </p>`
+            (msg) => `<p> <span class="span_email">${msg.email}</span> 
+                        <span class="span_date">[${msg.date}]</span> 
+                        <span class="span_msg">${msg.msg}</span> 
+                    </p>`
         )
         .join(" ");
 
@@ -36,11 +39,32 @@ function enviarProducto(event) {
     return false;
 }
 
+function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+}
+
+function formatDate(date) {
+    return (
+        [
+            padTo2Digits(date.getDate()),
+            padTo2Digits(date.getMonth() + 1),
+            date.getFullYear(),
+        ].join('/') +
+        ' ' +
+        [
+            padTo2Digits(date.getHours()),
+            padTo2Digits(date.getMinutes()),
+            padTo2Digits(date.getSeconds()),
+        ].join(':')
+    );
+}
+
 function enviarMsg(event) {
     const email = document.getElementById("floatingEmail").value;
     const msg = document.getElementById("floatingMsg").value;
+    const date = formatDate(new Date());
     document.getElementById("floatingMsg").value = "";
-    socket.emit("new_msg", { email, msg });
+    socket.emit("new_msg", { email, msg, date });
     return false;
 }
 

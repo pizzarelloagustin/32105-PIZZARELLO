@@ -26,3 +26,17 @@ body {
     z-index: 2;
 }
 
+.span_email {
+    color: blue;
+    font-weight: bold;
+}
+
+.span_date {
+    color: brown;
+}
+
+.span_msg {
+    color: green;
+    font-style: italic;
+}
+
