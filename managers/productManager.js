@@ -13,7 +13,7 @@ class productManager {
     }
 
     async save(newProduct) {
-        if(!newProduct.title || !newProduct.price || !newProduct.thumbnail) {
+        if(!producto.title || !producto.description || !producto.code || !producto.stock || !producto.price || !producto.thumbnail) {
             return {status:"error", error:"missing field"}
         }
         try{
