@@ -1,0 +1,41 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+.table {
+    max-width: 500px;
+    padding: 15px;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.span_email {
+    color: blue;
+    font-weight: bold;
+}
+
+.span_date {
+    color: brown;
+}
+
+.span_msg {
+    color: green;
+    font-style: italic;
+}

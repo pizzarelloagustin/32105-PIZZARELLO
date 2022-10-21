@@ -9,9 +9,9 @@ Knex_products.schema.hasTable('products').then(function (exists) {
         Knex_products.schema
             .createTable("products", (table) => {
                 table.increments("id");
-                table.string("name");
+                table.string("title");
                 table.float("price");
-                table.string("imgurl");
+                table.string("thumbnail");
             })
             .then(() => {
                 console.log("ok products");

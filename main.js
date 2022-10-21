@@ -3,7 +3,14 @@ import db_sqlite_config from "./db_sqlite_config.js";
 import express from "express";
 import DBcontainer from "./container.js";
 
+
+import { createServer } from "http";
+import { Server } from "socket.io";
+
 const app = express();
+
+const httpServer = new createServer(app);
+const io = new Server(httpServer);
 
 const DB_products = new DBcontainer(db_mysql_config, "products");
 const DB_msg = new DBcontainer(db_sqlite_config, "msg");
@@ -11,6 +18,39 @@ const DB_msg = new DBcontainer(db_sqlite_config, "msg");
 
 app.use(express.json());
 app.set("json spaces", 2);
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static('public'));
+
+io.on("connection", async (socket) => {
+    console.log(`conectado: ${socket.id}`);
+
+    const mostrarProductos = await DB_products.getAll();
+    socket.emit("products", mostrarProductos);
+    
+    const mostrarMessages = await DB_msg.getAll();
+    socket.emit("mensajes", mostrarMessages);
+
+    socket.on("new_product", async (data) => {
+        await DB_products.InsertValue(data);
+        const mostrarProductos = await DB_products.getAll();
+        io.sockets.emit("products", mostrarProductos);
+    });
+
+    socket.on("new_msg", async (data) => {
+        await DB_msg.InsertValue(data);
+        const mostrarMessages = await DB_msg.getAll();
+        io.sockets.emit("mensajes", mostrarMessages);
+    });
+});
+
+httpServer.listen(8080, () => {
+    try{
+        console.log("Server Iniciado")
+    } catch (e) {
+        console.log("Server Error", e)
+    }
+});
 
 
 app.get("/products", async (req, res) => {
@@ -57,6 +97,6 @@ app.post("/msgs", async (req, res) => {
 
 
 
-app.listen(8080, () => {
+app.listen(8081, () => {
     console.log("Server on");
 });
