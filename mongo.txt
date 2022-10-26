@@ -1,0 +1,9 @@
+use ecommerce
+db.createCollection("mensajes")
+db.createCollection("productos")
+db.mensajes.insertMany([{email: "test@mail1.com",msg: "mensaje 1", timestamp: ISODate()},{email: "test@mail2.com",msg: "mensaje 2", timestamp: ISODate()},{email: "test@mail3.com",msg: "mensaje 3", timestamp: ISODate()},{email: "test@mail4.com",msg: "mensaje 4", timestamp: ISODate()},{email: "test@mail5.com",msg: "mensaje 5", timestamp: ISODate()},{email: "test@mail6.com",msg: "mensaje 6", timestamp: ISODate()},{email: "test@mail7.com",msg: "mensaje 7", timestamp: ISODate()},{email: "test@mail8.com",msg: "mensaje 8", timestamp: ISODate()},{email: "test@mail9.com",msg: "mensaje 9", timestamp: ISODate()},{email: "test@mail10.com",msg: "mensaje 10", timestamp: ISODate()}])
+db.productos.insertMany([{title: "producto 1", price: 100, stock: 1, thumbnail: "url1", timestamp: ISODate()},{title: "producto 2", price: 200, stock: 2, thumbnail: "url2", timestamp: ISODate()},{title: "producto 3", price: 300, stock: 3, thumbnail: "url3", timestamp: ISODate()},{title: "producto 4", price: 400, stock: 4, thumbnail: "url4", timestamp: ISODate()},{title: "producto 5", price: 500, stock: 5, thumbnail: "url5", timestamp: ISODate()},{title: "producto 6", price: 600, stock: 6, thumbnail: "url6", timestamp: ISODate()},{title: "producto 7", price: 700, stock: 7, thumbnail: "url7", timestamp: ISODate()},{title: "producto 8", price: 800, stock: 8, thumbnail: "url8", timestamp: ISODate()},{title: "producto 9", price: 900, stock: 9, thumbnail: "url9", timestamp: ISODate()},{title: "producto 10", price: 1000, stock: 10, thumbnail: "url10", timestamp: ISODate()}])
+db.mensajes.find()
+db.productos.find()
+db.mensajes.countDocuments()
+db.productos.countDocuments()
